@@ -46,20 +46,25 @@ An agentic AI platform that discovers relevant job opportunities, understands jo
 
 ### Backend
 
-```bash
+```powershell
 cd backend
 python -m venv .venv
-# Windows PowerShell
 .\.venv\Scripts\Activate.ps1
-pip install -e .
+pip install -e .[dev]
 uvicorn app.main:app --reload
 ```
 
 ### Database
 
-```bash
+Start Docker Desktop first, then from the repository root:
+
+```powershell
 docker compose up -d postgres
 ```
+
+The backend expects PostgreSQL at `localhost:5432`.
+
+> Note: the sandbox used to prepare this repository does not have Docker or network access, so PostgreSQL connectivity is intentionally verified on your development machine.
 
 API docs:
 
@@ -67,6 +72,9 @@ API docs:
 - http://127.0.0.1:8000/health
 
 ## Git workflow
+
+See `docs/git-workflow.md` for the branch and commit policy.
+
 
 ```text
 main
